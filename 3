@@ -1,0 +1,77 @@
+package program9;
+import java.util.Scanner;
+class MatrixMul{
+    int m,n,i,j,k,p,q;
+    int[][] mat1=new int[10][10];
+    int[][] mat2=new int [10][10];
+    int[][] res=new int[10][10];
+    Scanner sc=new Scanner(System.in);
+    void input(){
+        System.out.println("Enter row and column size");
+        m=sc.nextInt();
+        n=sc.nextInt();
+        System.out.println("Enter first matrix valaues");
+        for(i=0;i<m;i++)
+        {
+            for(j=0;j<n;j++)
+            {
+                mat1[i][j]=sc.nextInt();
+            }
+        }
+        System.out.println("Enter row and column size");
+        p=sc.nextInt();
+        q=sc.nextInt();
+        if(n!=p)
+        {
+            System.out.println("multy is impossible");
+            System.exit(0);
+        }
+        else{
+            System.out.println("Enter second matrix valaues");
+            for(i=0;i<p;i++)
+            {
+                for(j=0;j<q;j++)
+                {
+                    mat2[i][j]=sc.nextInt();
+                }
+            }
+        }
+
+    }
+    void multiply(){
+
+        for(i=0;i<m;i++)
+        {
+            for(j=0;j<q;j++)
+            {
+                res[i][j]=0;
+                for(k=0;k<n;k++)
+                {
+                    res[i][j]=res[i][j]+mat1[i][k]*mat2[k][j];
+                }
+            }
+        }
+
+    }
+    void display(){
+
+        for(i=0;i<m;i++)
+        {
+            for(j=0;j<q;j++)
+            {
+                System.out.print(res[i][j]+" ");
+            }
+            System.out.println(" ");
+        }
+
+    }
+}
+class run {
+
+    public static void main(String[] args) {
+        MatrixMul m1=new MatrixMul();
+        m1.input();
+        m1.multiply();
+        m1.display();
+    }
+}
