@@ -1,0 +1,51 @@
+package program9;
+class complex{
+    double real,imag;
+    complex()
+    {
+        real=0.0;
+        imag=0.0;
+    }
+    complex(double a)
+    {
+        real=a;
+        imag=0.0;
+    }
+    complex(double b,double d)
+    {
+        real=b;
+        imag=d;
+    }
+    complex(complex ob)
+    {
+        real=ob.real;
+        imag=ob.imag;
+    }
+
+    void add(complex ob1)
+    {
+        double resReal=real+ob1.real;
+        double resImag=imag+ob1.imag;
+        System.out.println(resReal+" +i"+resImag);
+    }
+    void sub(complex ob2)
+    {
+        double res1Real=real-ob2.real;
+        double res1Imag=imag-ob2.imag;
+        System.out.println(res1Real+"  "+res1Imag+"i");
+    }
+
+}
+class run{
+    public static void main(String[] args) {
+        complex c1=new complex();
+        complex c2=new complex(10);
+        complex c3=new complex(20,30);
+        complex c4=new complex(c3);
+        c1.add(c2);
+        c2.add(c4);
+        c2.sub(c3);
+
+
+    }
+}
