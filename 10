@@ -1,0 +1,94 @@
+package program9;
+import java.util.Scanner;
+class midChar {
+    Scanner sc=new Scanner(System.in);
+    String s;
+    void findMid()
+    {
+        System.out.println("Enter the string");
+        s=sc.nextLine();
+        int lengt=s.length();
+        int mid=(lengt)/2;
+        if(lengt%2!=0)
+            System.out.println(s.charAt(mid));
+        else
+            System.out.println(s.charAt(mid-1)+"&"+s.charAt(mid) );
+    }
+}
+
+class palind{
+    Scanner sc=new Scanner(System.in);
+    void pal() {
+        String orig,rev = "";
+        System.out.println("Enter the string");
+        orig=sc.next();
+        try {
+            for (int i =orig.length()-1; i >= 0; i--) {
+                rev = rev + orig.charAt(i);
+            }
+        } catch (ArrayIndexOutOfBoundsException e)
+        {
+            System.out.println("arry index");
+            System.exit(0);
+        }
+        if(orig.equals(rev))
+            System.out.println("is plaindrome");
+        else
+            System.out.println("not a palindrome");
+    }
+}
+
+class countChar{
+    String s;
+    int i;
+    Scanner sc=new Scanner(System.in);
+    int count=0;
+    void calc()
+    {
+        System.out.println("Enter the string");
+        s=sc.nextLine();
+        for(i=0;i<s.length();i++)
+        {
+            if(s.charAt(i)!='\n')
+            {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
+class countV{
+    String s;
+    int i;
+    Scanner sc=new Scanner(System.in);
+    int count=0;
+    void calc()
+    {
+        System.out.println("Enter the string");
+        s=sc.nextLine();
+        for(i=0;i<s.length();i++)
+        {
+            char c=s.charAt(i);
+            if(c=='A'||c=='E'||c=='I'||c=='O'||c=='U'||c=='a'||c=='e'||c=='i'||c=='o'||c=='u')
+            {
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+}
+
+
+class run{
+    public static void main(String[] args) {
+        midChar m1=new midChar();
+        m1.findMid();
+        palind p1=new palind();
+        p1.pal();
+        countChar c1=new countChar();
+        c1.calc();
+        countV c=new countV();
+        c.calc();
+    }
+}
